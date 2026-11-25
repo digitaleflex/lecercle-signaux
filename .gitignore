@@ -2,3 +2,7 @@
 Thumbs.db
 *.log
 node_modules/
+
+# Captures de test à la racine (les images du site vont dans assets/img/)
+/*.png
+/*.jpg

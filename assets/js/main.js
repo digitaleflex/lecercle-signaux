@@ -38,18 +38,26 @@
   }
 
   /* 2. Images ----------------------------------------------------
-     Chaque emplacement porte data-img="assets/img/dossier/nom" (sans extension).
-     La page essaie .webp, puis .jpg, .jpeg et .png. Si un fichier existe,
-     il remplace le cadre [NEED] ; sinon le cadre reste affiché. */
+     Chaque emplacement porte data-img="assets/img/dossier/nom".
+     - Sans extension : la page essaie .webp, puis .jpg, .jpeg et .png.
+     - Avec extension (ex. "…/emerson-mentor.jpg") : un seul essai, aucune
+       requête perdue. À privilégier une fois les images définitives en place.
+     Si le fichier existe, il remplace le cadre [NEED] ; sinon le cadre reste.
+     Les images ne sont cherchées qu'à l'approche de leur section, pour ne pas
+     ralentir l'ouverture de la page sur mobile. */
   var EXTENSIONS = ["webp", "jpg", "jpeg", "png"];
+  var HAS_EXTENSION = /\.(webp|jpe?g|png|gif|avif|svg)$/i;
 
   function loadImage(slot) {
     var base = slot.getAttribute("data-img");
     var alt = slot.getAttribute("data-alt") || "";
+    var candidates = HAS_EXTENSION.test(base)
+      ? [base]
+      : EXTENSIONS.map(function (ext) { return base + "." + ext; });
     var i = 0;
 
     function tryNext() {
-      if (i >= EXTENSIONS.length) return; // aucune image : le cadre reste
+      if (i >= candidates.length) return; // aucune image : le cadre reste
       var img = new Image();
       img.alt = alt;
       img.decoding = "async";
@@ -59,14 +67,29 @@
         slot.classList.add("has-img");
       };
       img.onerror = tryNext;
-      img.src = base + "." + EXTENSIONS[i++];
+      img.src = candidates[i++];
     }
 
     tryNext();
   }
 
   function setImages() {
-    document.querySelectorAll("[data-img]").forEach(loadImage);
+    var slots = document.querySelectorAll("[data-img]");
+
+    if (!("IntersectionObserver" in window)) {
+      slots.forEach(loadImage);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        loadImage(entry.target);
+      });
+    }, { rootMargin: "600px 0px" }); // commence 600 px avant que la section arrive
+
+    slots.forEach(function (slot) { observer.observe(slot); });
   }
 
   /* 3. Boutons d'achat ------------------------------------------ */

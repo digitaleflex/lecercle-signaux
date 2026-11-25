@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cercle Signaux X : copie les trades d'une équipe pro</title>
 <meta name="description" content="Copie chaque jour, depuis ton téléphone, les trades d'une équipe de traders vérifiés par une IA. 15 000 FCFA, accès à vie, garantie 14 jours.">
+<meta name="theme-color" content="#038ef0">
+<!-- Aperçu du lien quand il est partagé (WhatsApp, Facebook, Telegram) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Le Cercle Signaux X : copie les trades d'une équipe pro">
+<meta property="og:description" content="Copie chaque jour, depuis ton téléphone, les trades d'une équipe de traders vérifiés par une IA. 15 000 FCFA, accès à vie, garantie 14 jours.">
+<!-- Facebook et WhatsApp exigent une adresse complète : remplacer par https://<domaine>/assets/img/partage.jpg une fois le domaine choisi (issue #13) -->
+<meta property="og:image" content="assets/img/partage.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
@@ -16,6 +25,8 @@
 </head>
 <body>
 
+<main>
+
 <!-- S1 · HERO -->
 <header class="hero">
   <div class="wrap">
@@ -25,13 +36,13 @@
 
     <div class="video-box">
       <div class="video-box__label">Regarde la vidéo ci-dessous</div>
-      <!-- La vidéo se règle dans assets/js/config.js (vslEmbedUrl) -->
+      <!-- La vidéo se règle dans assets/js/config.js (vslUrl) -->
       <div class="video" id="vsl">
         <div class="video__play" aria-hidden="true"></div>
       </div>
     </div>
 
-    <div class="cta"><a class="btn btn--big js-cta" href="#">Je rejoins le Cercle maintenant</a></div>
+    <div class="cta"><a class="btn btn--big js-cta" href="#offre">Je rejoins le Cercle maintenant</a></div>
     <div class="trust"><span>Accès immédiat</span><span>Garantie 14 jours</span><span>7 accélérateurs aux 27 premiers</span></div>
   </div>
 </header>
@@ -58,7 +69,7 @@
       </ul>
     </div>
   </div>
-  <div class="cta"><a class="btn js-cta" href="#">Je veux copier mon premier trade</a></div>
+  <div class="cta"><a class="btn js-cta" href="#offre">Je veux copier mon premier trade</a></div>
 </section>
 
 <!-- S4 · À QUI S'ADRESSE LE CERCLE -->
@@ -68,17 +79,19 @@
       <h2>À qui s'adresse le Cercle Signaux X ?</h2>
       <p class="who__intro"><strong>Le Cercle</strong> est fait pour toi si tu veux un revenu en plus, <strong>simple, réaliste et accessible</strong>.</p>
 
-      <div class="profile"><div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><div><strong>Les salariés</strong> dont le salaire est fini avant la fin du mois, et qui veulent un complément.</div></div>
-      <div class="profile"><div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18"/><path d="M9 20v-6h6v6"/></svg></div><div><strong>Les commerçants et les vendeurs sur WhatsApp</strong> qui veulent une autre source d'argent que leur boutique.</div></div>
-      <div class="profile"><div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div><div><strong>Les étudiants</strong> qui enchaînent les petits jobs et qui en ont marre de compter chaque franc.</div></div>
-      <div class="profile"><div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div><div><strong>Ceux qui ont déjà payé un VIP ou un « coach »</strong>, et qui veulent enfin quelqu'un de sérieux.</div></div>
-      <div class="profile"><div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div><div><strong>Ceux qui s'intéressent au digital</strong> et cherchent une vraie opportunité, pas une promesse.</div></div>
-      <div class="profile"><div class="profile__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div><div><strong>Les débutants complets</strong>, même ceux qui n'ont jamais ouvert une appli de trading.</div></div>
+      <div class="profiles">
+      <div class="profile"><div class="profile__icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><div><strong>Les salariés</strong> dont le salaire est fini avant la fin du mois, et qui veulent un complément.</div></div>
+      <div class="profile"><div class="profile__icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18"/><path d="M9 20v-6h6v6"/></svg></div><div><strong>Les commerçants et les vendeurs sur WhatsApp</strong> qui veulent une autre source d'argent que leur boutique.</div></div>
+      <div class="profile"><div class="profile__icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div><div><strong>Les étudiants</strong> qui enchaînent les petits jobs et qui en ont marre de compter chaque franc.</div></div>
+      <div class="profile"><div class="profile__icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div><div><strong>Ceux qui ont déjà payé un VIP ou un « coach »</strong>, et qui veulent enfin quelqu'un de sérieux.</div></div>
+      <div class="profile"><div class="profile__icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div><div><strong>Ceux qui s'intéressent au digital</strong> et cherchent une vraie opportunité, pas une promesse.</div></div>
+      <div class="profile"><div class="profile__icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div><div><strong>Les débutants complets</strong>, même ceux qui n'ont jamais ouvert une appli de trading.</div></div>
+      </div>
 
       <div class="need"><strong>Tu n'as PAS besoin de :</strong> savoir lire un graphique, avoir un ordinateur, avoir des heures devant toi.</div>
       <div class="need"><strong>Tu as simplement besoin de :</strong> ton téléphone, 10 minutes par jour, et l'envie de suivre un cadre.</div>
     </div>
-    <div class="cta"><a class="btn js-cta" href="#">Je rejoins le Cercle maintenant</a></div>
+    <div class="cta"><a class="btn js-cta" href="#offre">Je rejoins le Cercle maintenant</a></div>
   </div>
 </section>
 
@@ -119,7 +132,7 @@
   </div>
   <div class="wrap narrow center after-cards">
     <p class="lead">Et le temps passe. Les autres avancent. Et toi, tu attends encore le bon moment.</p>
-    <div class="cta"><a class="btn js-cta" href="#">Je veux un cadre clair</a></div>
+    <div class="cta"><a class="btn js-cta" href="#offre">Je veux un cadre clair</a></div>
   </div>
 </section>
 
@@ -164,7 +177,7 @@
     <p>Le Cercle transforme ce que le trading a de plus frustrant, <strong>la peur de se faire avoir et l'impression de jouer au loto</strong>, en un cadre simple.</p>
     <p>Au lieu de trader seul la nuit, tu arrives dans un espace privé où tout est déjà prêt : les signaux du jour avec leur note vocale, le calculateur, les alertes, le registre de tous nos trades, et un groupe qui avance avec toi.</p>
     <p>Ici, le trading n'est plus un casino. <strong>C'est un système.</strong> Tu passes de « C'est de la loterie, ce n'est pas pour moi » à « Je sais quoi copier, combien mettre, et pourquoi ».</p>
-    <div class="cta"><a class="btn js-cta" href="#">Je rejoins le Cercle maintenant</a></div>
+    <div class="cta"><a class="btn js-cta" href="#offre">Je rejoins le Cercle maintenant</a></div>
   </div>
 </section>
 
@@ -210,7 +223,7 @@
   <div class="wrap">
     <div class="offer-head">
       <span class="tag">Une seule option. Simple.</span>
-      <h2>L'offre : le Cercle Signaux X <span class="nowrap">(15 000 FCFA, accès à vie)</span></h2>
+      <h2>L'offre : le Cercle Signaux X (15 000 FCFA, accès à vie)</h2>
       <p class="narrow muted">Le cadre complet pour copier, coller et encaisser, avec une équipe derrière toi.</p>
     </div>
 
@@ -279,7 +292,7 @@
         <div class="price__once">Une seule fois · accès à vie</div>
       </div>
     </div>
-    <div class="cta"><a class="btn btn--big js-cta" href="#">Je rejoins le Cercle maintenant</a></div>
+    <div class="cta"><a class="btn btn--big js-cta" href="#offre">Je rejoins le Cercle maintenant</a></div>
   </div>
 </section>
 
@@ -322,7 +335,7 @@
         <div class="price__once">Une seule fois · accès à vie</div>
       </div>
     </div>
-    <div class="cta"><a class="btn btn--big js-cta" href="#">Je sécurise ma place parmi les 27</a></div>
+    <div class="cta"><a class="btn btn--big js-cta" href="#offre">Je sécurise ma place parmi les 27</a></div>
   </div>
 </section>
 
@@ -332,13 +345,13 @@
     <h2>Seul, ou dans le Cercle ?</h2>
     <p class="sub">Voici exactement ce qui change.</p>
     <div class="compare" role="table">
-      <div class="compare__row compare__row--head" role="row"><div>Ce que tu as</div><div>Seul</div><div>Dans le Cercle</div></div>
-      <div class="compare__row" role="row"><div>Des trades vérifiés tous les jours</div><div class="no">✘</div><div class="yes">✔</div></div>
-      <div class="compare__row" role="row"><div>Savoir combien mettre sur chaque trade</div><div class="no">✘</div><div class="yes">✔</div></div>
-      <div class="compare__row" role="row"><div>Comprendre pourquoi on entre</div><div class="no">✘</div><div class="yes">✔</div></div>
-      <div class="compare__row" role="row"><div>Quelqu'un à qui poser tes questions chaque semaine</div><div class="no">✘</div><div class="yes">✔</div></div>
-      <div class="compare__row" role="row"><div>Voir tous les trades, gagnants et perdants</div><div class="no">✘</div><div class="yes">✔</div></div>
-      <div class="compare__row" role="row"><div>Une garantie de 14 jours</div><div class="no">✘</div><div class="yes">✔</div></div>
+      <div class="compare__row compare__row--head" role="row"><div role="columnheader">Ce que tu as</div><div role="columnheader">Seul</div><div role="columnheader">Dans le Cercle</div></div>
+      <div class="compare__row" role="row"><div role="cell">Des trades vérifiés tous les jours</div><div class="no" role="cell" aria-label="Non">✘</div><div class="yes" role="cell" aria-label="Oui">✔</div></div>
+      <div class="compare__row" role="row"><div role="cell">Savoir combien mettre sur chaque trade</div><div class="no" role="cell" aria-label="Non">✘</div><div class="yes" role="cell" aria-label="Oui">✔</div></div>
+      <div class="compare__row" role="row"><div role="cell">Comprendre pourquoi on entre</div><div class="no" role="cell" aria-label="Non">✘</div><div class="yes" role="cell" aria-label="Oui">✔</div></div>
+      <div class="compare__row" role="row"><div role="cell">Quelqu'un à qui poser tes questions chaque semaine</div><div class="no" role="cell" aria-label="Non">✘</div><div class="yes" role="cell" aria-label="Oui">✔</div></div>
+      <div class="compare__row" role="row"><div role="cell">Voir tous les trades, gagnants et perdants</div><div class="no" role="cell" aria-label="Non">✘</div><div class="yes" role="cell" aria-label="Oui">✔</div></div>
+      <div class="compare__row" role="row"><div role="cell">Une garantie de 14 jours</div><div class="no" role="cell" aria-label="Non">✘</div><div class="yes" role="cell" aria-label="Oui">✔</div></div>
     </div>
     <div class="result">
       <div class="result__title">Résultat :</div>
@@ -347,7 +360,7 @@
         <p><strong>Dans le Cercle</strong> = tu copies + tu colles + tu encaisses + tu comprends.</p>
       </div>
     </div>
-    <div class="cta"><a class="btn js-cta" href="#">Je rejoins le Cercle maintenant</a></div>
+    <div class="cta"><a class="btn js-cta" href="#offre">Je rejoins le Cercle maintenant</a></div>
   </div>
 </section>
 
@@ -437,7 +450,7 @@
       <div class="final-offer__name">Le Cercle Signaux X</div>
       <div class="final-offer__price">15 000 FCFA</div>
       <p><strong>Une fois, accès à vie</strong><br>+ 7 accélérateurs pour les 27 premiers</p>
-      <div class="cta cta--tight"><a class="btn btn--big js-cta" href="#">Je rejoins le Cercle maintenant</a><small>Mobile Money · Carte · Crypto — accès immédiat</small></div>
+      <div class="cta cta--tight"><a class="btn btn--big js-cta" href="#offre">Je rejoins le Cercle maintenant</a><small>Mobile Money · Carte · Crypto — accès immédiat</small></div>
     </div>
   </div>
 </section>
@@ -453,15 +466,23 @@
       </div>
     </div>
     <p class="question">La seule vraie question : veux-tu rester celui qui regarde les autres poster leurs gains, ou devenir celui qui copie, colle et encaisse, avec une équipe derrière lui ?</p>
-    <div class="cta"><a class="btn btn--big js-cta" href="#">Je rejoins le Cercle maintenant</a></div>
+    <div class="cta"><a class="btn btn--big js-cta" href="#offre">Je rejoins le Cercle maintenant</a></div>
   </div>
 </section>
+
+</main>
 
 <footer class="footer">
   <div class="wrap">
     <div class="footer__risk"><b>Avertissement sur les risques :</b> le trading sur le Forex et les indices synthétiques comporte un risque élevé de perte en capital. Les performances passées ne préjugent pas des performances futures. Les signaux partagés dans le Cercle Signaux X sont fournis à titre éducatif et ne constituent pas un conseil en investissement personnalisé. N'investis que l'argent que tu peux te permettre de perdre.</div>
     <p>Ce site n'appartient pas à Facebook et n'est pas affilié à Facebook Inc. Le contenu de ce site n'a pas été vérifié par Facebook. Facebook est une marque déposée de Meta Platforms, Inc.</p>
-    <p><a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a> | <a href="#">Conditions générales de vente</a> | <a href="#">Politique de remboursement</a></p>
+    <!-- Liens à renseigner quand les pages existent (issue #8) -->
+    <nav class="footer__links" aria-label="Informations légales">
+      <a href="#">Mentions légales</a>
+      <a href="#">Politique de confidentialité</a>
+      <a href="#">Conditions générales de vente</a>
+      <a href="#">Politique de remboursement</a>
+    </nav>
     <p>Le Cercle Signaux X · Tous droits réservés</p>
   </div>
 </footer>
@@ -469,7 +490,7 @@
 <!-- Barre CTA collante (mobile) -->
 <div class="sticky" id="sticky">
   <div class="sticky__price">15 000 FCFA<small>Accès à vie · Garantie 14 jours</small></div>
-  <a class="btn js-cta" href="#">Je rejoins le Cercle</a>
+  <a class="btn js-cta" href="#offre"><span class="sticky__long">Je rejoins le Cercle</span><span class="sticky__short">Rejoindre</span></a>
 </div>
 
 </body>
