@@ -1,8 +1,10 @@
 /* ============================================================
    COMPORTEMENTS DE LA PAGE
-   1. Lien du bon de commande sur tous les boutons d'achat
-   2. Compteur des places restantes
-   3. Barre d'achat collante sur mobile
+   1. Vidéo VSL à partir du lien YouTube ou Vimeo
+   2. Images : chargées automatiquement depuis assets/img/
+   3. Lien du bon de commande sur tous les boutons d'achat
+   4. Compteur des places restantes
+   5. Barre d'achat collante sur mobile
    ============================================================ */
 
 (function () {
@@ -10,7 +12,64 @@
 
   var config = window.CERCLE_CONFIG || {};
 
-  /* 1. Boutons d'achat */
+  /* 1. Vidéo VSL ------------------------------------------------ */
+  function toEmbedUrl(url) {
+    var m;
+    if ((m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/))) {
+      return "https://www.youtube-nocookie.com/embed/" + m[1] + "?rel=0&modestbranding=1";
+    }
+    if ((m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/))) {
+      return "https://player.vimeo.com/video/" + m[1];
+    }
+    return url; // autre lecteur : le lien est utilisé tel quel
+  }
+
+  function setVideo() {
+    var box = document.getElementById("vsl");
+    if (!box || !config.vslUrl) return;
+
+    var iframe = document.createElement("iframe");
+    iframe.src = toEmbedUrl(config.vslUrl);
+    iframe.title = "Vidéo de présentation du Cercle Signaux X";
+    iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+    iframe.allowFullscreen = true;
+    box.innerHTML = "";
+    box.appendChild(iframe);
+  }
+
+  /* 2. Images ----------------------------------------------------
+     Chaque emplacement porte data-img="assets/img/dossier/nom" (sans extension).
+     La page essaie .webp, puis .jpg, .jpeg et .png. Si un fichier existe,
+     il remplace le cadre [NEED] ; sinon le cadre reste affiché. */
+  var EXTENSIONS = ["webp", "jpg", "jpeg", "png"];
+
+  function loadImage(slot) {
+    var base = slot.getAttribute("data-img");
+    var alt = slot.getAttribute("data-alt") || "";
+    var i = 0;
+
+    function tryNext() {
+      if (i >= EXTENSIONS.length) return; // aucune image : le cadre reste
+      var img = new Image();
+      img.alt = alt;
+      img.decoding = "async";
+      img.onload = function () {
+        slot.innerHTML = "";
+        slot.appendChild(img);
+        slot.classList.add("has-img");
+      };
+      img.onerror = tryNext;
+      img.src = base + "." + EXTENSIONS[i++];
+    }
+
+    tryNext();
+  }
+
+  function setImages() {
+    document.querySelectorAll("[data-img]").forEach(loadImage);
+  }
+
+  /* 3. Boutons d'achat ------------------------------------------ */
   function setCheckoutLinks() {
     if (!config.checkoutUrl) return;
     document.querySelectorAll(".js-cta").forEach(function (link) {
@@ -18,7 +77,7 @@
     });
   }
 
-  /* 2. Compteur des places */
+  /* 4. Compteur des places -------------------------------------- */
   function setCounter() {
     var counter = document.getElementById("counter");
     var left = config.placesRestantes;
@@ -32,7 +91,7 @@
     counter.hidden = false;
   }
 
-  /* 3. Barre collante : visible dès que le hero sort de l'écran */
+  /* 5. Barre collante : visible dès que le hero sort de l'écran -- */
   function setStickyBar() {
     var sticky = document.getElementById("sticky");
     var hero = document.querySelector(".hero");
@@ -43,6 +102,8 @@
     }).observe(hero);
   }
 
+  setVideo();
+  setImages();
   setCheckoutLinks();
   setCounter();
   setStickyBar();

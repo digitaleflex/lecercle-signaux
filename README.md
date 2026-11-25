@@ -15,9 +15,12 @@ Site statique : HTML, CSS et JavaScript, sans framework ni étape de build.
 │   │   ├── components.css     # Éléments réutilisés : boutons, listes, prix, garantie, FAQ, barre mobile
 │   │   └── sections.css       # Styles propres à chaque section, dans l'ordre de la page
 │   ├── js/
-│   │   ├── config.js          # Réglages : lien du bon de commande, compteur des 27 places
-│   │   └── main.js            # Comportements : liens d'achat, compteur, barre collante mobile
-│   └── img/                   # Images à fournir (voir assets/img/README.md)
+│   │   ├── config.js          # Réglages : vidéo, lien du bon de commande, compteur des 27 places
+│   │   └── main.js            # Comportements : vidéo, images, liens d'achat, compteur, barre mobile
+│   └── img/                   # Images : voir assets/img/README.md
+│       ├── mockups/           # Visuels du produit (téléphone, mockups 3D)
+│       ├── emerson/           # Photos d'Emerson
+│       └── temoignages/       # Captures des témoignages
 └── README.md
 ```
 
@@ -27,11 +30,16 @@ Tout se fait dans `assets/js/config.js` :
 
 | Réglage | Rôle | Valeur actuelle |
 | --- | --- | --- |
+| `vslUrl` | Lien YouTube ou Vimeo de la VSL, transformé automatiquement en lecteur | `""` (vide) |
 | `checkoutUrl` | Lien du bon de commande, appliqué à tous les boutons d'achat | `#offre` (provisoire) |
 | `placesTotal` | Nombre de places donnant droit aux 7 accélérateurs | `27` |
 | `placesRestantes` | Affiche « Plus que X places sur 27 » ; `null` masque le compteur | `null` |
 
 Les couleurs et la police se changent dans les variables en haut de `assets/css/base.css`.
+
+## Ajouter les images
+
+Dépose chaque image dans `assets/img/`, dans le bon sous-dossier et avec le nom prévu : la page l'affiche toute seule, sans toucher au HTML. La liste des noms est dans [`assets/img/README.md`](assets/img/README.md), et chaque cadre `[NEED]` de la page affiche aussi le chemin attendu.
 
 ## Voir la page en local
 
@@ -50,11 +58,11 @@ python3 -m http.server 8000
 
 Les emplacements à remplir sont des cadres en pointillés marqués **[NEED]** dans la page.
 
-- [ ] La vidéo VSL (bloc `#vsl` du hero : remplacer le bouton lecture par l'iframe)
-- [ ] Le mockup du téléphone (alerte de signal, note vocale, calculateur)
-- [ ] Les 2 mockups 3D (le Cercle seul, puis le Cercle + 7 accélérateurs)
-- [ ] Les 2 photos d'Emerson (section « Pourquoi » et section « Mentor »)
-- [ ] Les témoignages (Math + au moins 3 autres, avec accord écrit)
+- [ ] La vidéo VSL (`vslUrl` dans `assets/js/config.js`)
+- [ ] Le mockup du téléphone (`assets/img/mockups/telephone-signal`)
+- [ ] Les 2 mockups 3D (`assets/img/mockups/cercle` et `cercle-accelerateurs`)
+- [ ] Les 2 photos d'Emerson (`assets/img/emerson/`)
+- [ ] Les témoignages, avec accord écrit (`assets/img/temoignages/`)
 - [ ] La réponse FAQ « Je suis déjà inscrit chez un autre trader »
 - [ ] Le lien du bon de commande (`checkoutUrl`) et la plateforme de paiement Mobile Money
 - [ ] Le vrai compteur des 27 places et la règle après la 27e inscription

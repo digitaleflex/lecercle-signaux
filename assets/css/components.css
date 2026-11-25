@@ -367,3 +367,28 @@ blockquote {
     display: flex;
   }
 }
+
+/* Chemin du fichier attendu, affiché sous l'étiquette [NEED] */
+.ph small {
+  display: block;
+  margin-top: 8px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #6b93b5;
+}
+
+/* Une fois l'image trouvée, le cadre pointillé disparaît */
+.ph.has-img {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.ph.has-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
